@@ -20,6 +20,8 @@ library(httr)
 #  - install SelectorGadget in browser
 #  - explore imdb.com and omdbapi.com
 #  - request API key from omdbapi.com
+
+# Becca read me
 ```
 
 ##Getting data from websites
