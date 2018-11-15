@@ -22,6 +22,8 @@ library(httr)
 #  - request API key from omdbapi.com
 
 # Becca read me
+
+##I did 
 ```
 
 ##Getting data from websites
