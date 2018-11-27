@@ -1,0 +1,22 @@
+---
+title: "dataScienceFinal"
+author: "Alex Son and Becca Storey"
+date: "11/27/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(httr)
+```
+
+```{r}
+  # r <- GET("http://httpbin.org/get", 
+  # query = list(key1 = "value1", key2 = "value2")
+  
+  yelp <- GET("https://api.yelp.com/v3/businesses/search?location=New York City", add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(yelp, "parse")
+  details
+```
+
