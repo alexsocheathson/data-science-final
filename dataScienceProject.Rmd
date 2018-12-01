@@ -152,3 +152,65 @@ San_Francisco <- GET("https://api.yelp.com/v3/businesses/search?",
   San_Francisco_table
 ```
 
+
+```{r}
+count_price <- ggplot(data = San_Francisco_table) +
+  geom_bar(mapping = aes(x = price))
+
+print(count_price)
+```
+
+
+
+## this one needs some work 
+```{r}
+count_rating <- ggplot(data = San_Francisco_table) +
+  geom_bar(mapping = aes(x = Rating))
+
+print(count_rating)
+```
+
+
+```{r}
+count_review <- ggplot(data = San_Francisco_table) +
+  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
+  coord_cartesian(xlim = c(0, 8000))
+
+print(count_review)
+```
+
+
+```{r}
+rating_review <- ggplot(data = San_Francisco_table) +
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+
+print(rating_review)
+```
+
+
+## Not sure where $$$$ went 
+```{r}
+rating_price <- ggplot(data = San_Francisco_table) +
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+
+print(rating_price)
+```
+
+```{r}
+price_review <- ggplot(data = San_Francisco_table) +
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+
+print(price_review)
+```
+
+
+## still working on this 
+```{r}
+price_review <- ggplot(data = San_Francisco_table) +
+  geom_bin2d(mapping = aes(x = price, y = review_count)) +
+  scale_x_log10() +
+  scale_y_log10()
+
+print(price_review)
+```
+
