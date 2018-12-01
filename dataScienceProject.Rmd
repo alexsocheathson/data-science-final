@@ -48,3 +48,107 @@ library(tidyverse)
   new_york_table
 ```
 
+
+
+```{r}
+seattle <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "Seattle", price = "1,2,3,4", limit = "50"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(seattle, "parse")
+  
+  details$businesses[[1]]
+  
+  for(i in details$businesses){
+    print(i$name)
+    print(i$rating)
+    print(i$coordinates$latitude)
+    print(i$coordinates$longitude)
+    print(i$price)
+  }
+  
+  seattle_table <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  length(details$businesses)
+  
+  for(i in 1:length(details$businesses)){
+   seattle_table[i,1] <- details$businesses[[i]]$name
+   seattle_table[i,2] <- details$businesses[[i]]$rating
+   seattle_table[i,3] <- details$businesses[[i]]$coordinates$latitude
+   seattle_table[i,4] <- details$businesses[[i]]$coordinates$longitude
+   seattle_table[i,5] <- details$businesses[[i]]$price
+   seattle_table[i,6] <- details$businesses[[i]]$review_count
+  }
+  
+ seattle_table
+```
+
+
+
+```{r}
+Houston <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "Houston", price = "1,2,3,4", limit = "50"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(Houston, "parse")
+  
+  details$businesses[[1]]
+  
+  for(i in details$businesses){
+    print(i$name)
+    print(i$rating)
+    print(i$coordinates$latitude)
+    print(i$coordinates$longitude)
+    print(i$price)
+  }
+  
+  Houston_table <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  length(details$businesses)
+  
+  for(i in 1:length(details$businesses)){
+   Houston_table[i,1] <- details$businesses[[i]]$name
+   Houston_table[i,2] <- details$businesses[[i]]$rating
+   Houston_table[i,3] <- details$businesses[[i]]$coordinates$latitude
+   Houston_table[i,4] <- details$businesses[[i]]$coordinates$longitude
+   Houston_table[i,5] <- details$businesses[[i]]$price
+   Houston_table[i,6] <- details$businesses[[i]]$review_count
+  }
+  
+  Houston_table
+```
+
+
+
+```{r}
+San_Francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(San_Francisco, "parse")
+  
+  details$businesses[[1]]
+  
+  for(i in details$businesses){
+    print(i$name)
+    print(i$rating)
+    print(i$coordinates$latitude)
+    print(i$coordinates$longitude)
+    print(i$price)
+  }
+  
+  San_Francisco_table <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  length(details$businesses)
+  
+  for(i in 1:length(details$businesses)){
+   San_Francisco_table[i,1] <- details$businesses[[i]]$name
+   San_Francisco_table[i,2] <- details$businesses[[i]]$rating
+   San_Francisco_table[i,3] <- details$businesses[[i]]$coordinates$latitude
+   San_Francisco_table[i,4] <- details$businesses[[i]]$coordinates$longitude
+   San_Francisco_table[i,5] <- details$businesses[[i]]$price
+   San_Francisco_table[i,6] <- details$businesses[[i]]$review_count
+  }
+  San_Francisco_table
+```
+
