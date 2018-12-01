@@ -4,11 +4,10 @@ author: "Alex Son and Becca Storey"
 date: "11/27/2018"
 output: pdf_document
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 library(httr)
 library(tidyverse)
 ```
@@ -17,11 +16,11 @@ library(tidyverse)
   # r <- GET("http://httpbin.org/get", 
   # query = list(key1 = "value1", key2 = "value2")
   
-  yelp <- GET("https://api.yelp.com/v3/businesses/search?location=New York City&price=1,2,3,4&limit=10", add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+  new_york <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "New York City", price = "1,2,3,4", limit = "50"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
 
-test <- GET("https://api.yelp.com/v3/businesses/search?location=New York City&price=1,2,3,4&limit=10", add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
-
-  details <- content(test, "parse")
+  details <- content(new_york, "parse")
   
   details$businesses[[1]]
   
@@ -33,19 +32,19 @@ test <- GET("https://api.yelp.com/v3/businesses/search?location=New York City&pr
     print(i$price)
   }
   
-  yelp_test_table <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  new_york_table <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
   
   length(details$businesses)
   
   for(i in 1:length(details$businesses)){
-    yelp_test_table[i,1] <- details$businesses[[i]]$name
-    yelp_test_table[i,2] <- details$businesses[[i]]$rating
-    yelp_test_table[i,3] <- details$businesses[[i]]$coordinates$latitude
-    yelp_test_table[i,4] <- details$businesses[[i]]$coordinates$longitude
-    yelp_test_table[i,5] <- details$businesses[[i]]$price
-    yelp_test_table[i,6] <- details$businesses[[i]]$review_count 
+   new_york_table[i,1] <- details$businesses[[i]]$name
+   new_york_table[i,2] <- details$businesses[[i]]$rating
+   new_york_table[i,3] <- details$businesses[[i]]$coordinates$latitude
+   new_york_table[i,4] <- details$businesses[[i]]$coordinates$longitude
+   new_york_table[i,5] <- details$businesses[[i]]$price
+   new_york_table[i,6] <- details$businesses[[i]]$review_count
   }
   
-  yelp_test_table
+  new_york_table
 ```
 
