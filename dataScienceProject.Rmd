@@ -204,13 +204,10 @@ print(price_review)
 ```
 
 
-## still working on this 
 ```{r}
 price_review <- ggplot(data = San_Francisco_table) +
-  geom_bin2d(mapping = aes(x = price, y = review_count)) +
-  scale_x_log10() +
-  scale_y_log10()
-
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+  
 print(price_review)
 ```
 
