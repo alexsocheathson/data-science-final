@@ -10,6 +10,7 @@ editor_options:
 ```{r setup, include=FALSE}
 library(httr)
 library(tidyverse)
+library(leaflet)
 ```
 
 ```{r}
@@ -209,5 +210,32 @@ price_review <- ggplot(data = San_Francisco_table) +
   geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
   
 print(price_review)
+```
+
+
+## Maps
+
+```{r}
+qmplot(Long, Lat, data = airbnb.df, 
+       colour = I('red'), size = I(1), darken = .1)
+
+bbox <- c(left = min(airbnb.df$Long), bottom = min(airbnb.df$Lat), 
+          right = max(airbnb.df$Long), top = max(airbnb.df$Lat))
+bostonmap <- get_stamenmap(bbox, zoom = 12, maptype = "toner-lite")  # terrain fails
+ggmap(bostonmap)
+ggmap(bostonmap) +
+  geom_point(data = airbnb.df, aes(x = Long, y = Lat, color = S_PropType,
+                                   size = parse_number(S_Accomodates))) +
+  scale_size_continuous(range = c(.25, 2.5))
+```
+
+```{r}
+qmplot(latitude, longitude, data = seattle_table, 
+       colour = I('red'), size = I(1), darken = .1)
+seattlebox <-  c(left = min(seattle_table$latitude), bottom = min(seattle_table$latitude), 
+          right = max(seattle_table$Long), top = max(seattle_table$Lat))
+seattlemap <- get_stamenmap(seattlebox, zoom = 12, maptype = "toner-lite")
+ggmap(seattlemap)
+
 ```
 
