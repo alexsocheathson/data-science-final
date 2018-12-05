@@ -11,6 +11,7 @@ editor_options:
 library(httr)
 library(tidyverse)
 library(ggmap)
+library(leaflet)
 ```
 
 ```{r}
@@ -227,13 +228,6 @@ ggmap(bostonmap) +
   scale_size_continuous(range = c(.25, 2.5))
 
 ```
-
-```{r}
-
-seattle_box <- c(left = min(seattle_table$longitude), bottom = min(seattle_table$latitude)), right = max(seattle_table$longitude), top = max(seattle_table$latitude))
-
-seattle_map <- get_stamenmap(seattle_box, zoom = 12, maptype - "toner-lite")
-ggmap(seattle_map)
 
 
 
