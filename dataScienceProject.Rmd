@@ -3,6 +3,7 @@ title: "dataScienceFinal"
 author: "Alex Son and Becca Storey"
 date: "11/27/2018"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 editor_options:
@@ -13,8 +14,9 @@ editor_options:
 library(httr)
 library(tidyverse)
 library(ggmap)
+```
 
-```{r, newyork1, include = false}
+```{r, newyork1}
   # r <- GET("http://httpbin.org/get", 
   # query = list(key1 = "value1", key2 = "value2")
   
@@ -838,9 +840,9 @@ san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
                               houston_table5, houston_table6, houston_table7, 
                               houston_table8, houston_table9, houston_table10)
   
-  write.csv(new_york_final, file = "new_york_final.csv")
-  write.csv(seattle_final, file = "seattle_final.csv")
-  write.csv(houston_final, file = "houston_final.csv")
+  # write.csv(new_york_final, file = "new_york_final.csv")
+  # write.csv(seattle_final, file = "seattle_final.csv")
+  # write.csv(houston_final, file = "houston_final.csv")
   
 ```
 
