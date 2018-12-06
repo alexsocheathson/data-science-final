@@ -16,102 +16,240 @@ library(ggmap)
 new_york_final <- read_csv("new_york_final.csv")
 seattle_final <- read_csv("seattle_final.csv")
 houston_final <- read_csv("houston_final.csv")
+san_francisco_final <- read_csv("san_francisco_final.csv")
 ```
+
+```{r}
+read_csv("new_york_final.csv")
+```
+
+## Category Analysis
+
+```{r}
+foo2 <- airbnb.df$AboutListing[5]
+str_detect(foo2, "[Pp]ublic [Tt]ransportation")
+
+airbnb.df <- airbnb.df %>%
+  mutate(pub_trans = str_detect(AboutListing, "[Pp]ublic [Tt]ransportation"))
+  airbnb.df %>% group_by(pub_trans) %>% tally()
+
+ggplot(airbnb.df %>%
+         filter(Price < 1500), 
+aes(x = pub_trans, y = Price)) +
+  geom_boxplot() +
+  labs(
+    title = paste("Public Transportation and Price"),
+    x = "Access to Public Transportation",
+    y = "Price")
+```
+
+
 
 
 ##Count versus Price 
 ```{r}
 count_price_new_york <- ggplot(data = new_york_final) +
-  geom_bar(mapping = aes(x = price))
-
+  geom_bar(mapping = aes(x = price)) +
+  labs(
+    title = paste("Price"),
+    x = "Price",
+    y = "Count")
 count_price_seattle <- ggplot(data = seattle_final) +
-  geom_bar(mapping = aes(x = price))
-
+  geom_bar(mapping = aes(x = price)) +
+  labs(
+    title = paste("Price"),
+    x = "Price",
+    y = "Count")
 count_price_houston <- ggplot(data = houston_final) +
-  geom_bar(mapping = aes(x = price))
+  geom_bar(mapping = aes(x = price)) +
+  labs(
+    title = paste("Price"),
+    x = "Price",
+    y = "Count")
+count_price_sanfran <- ggplot(data = san_francisco_final) +
+  geom_bar(mapping = aes(x = price)) +
+  labs(
+    title = paste("Price"),
+    x = "Price",
+    y = "Count")
 
 print(count_price_new_york)
 print(count_price_seattle)
 print(count_price_houston)
+print(count_price_sanfran)
 ```
 
 
 ## Count Versus Rating 
 ```{r}
 count_rating_new_york <- ggplot(data = new_york_final ) +
-  geom_bar(mapping = aes(x = Rating))
+  geom_bar(mapping = aes(x = Rating)) +
+  labs(
+    title = paste("Rating"),
+    x = "Rating",
+    y = "Count")
 count_rating_seattle <- ggplot(data = seattle_final ) +
-  geom_bar(mapping = aes(x = Rating))
+  geom_bar(mapping = aes(x = Rating)) +
+  labs(
+    title = paste("Rating"),
+    x = "Rating",
+    y = "Count")
 count_rating_houston <- ggplot(data = houston_final ) +
-  geom_bar(mapping = aes(x = Rating))
+  geom_bar(mapping = aes(x = Rating)) +
+  labs(
+    title = paste("Rating"),
+    x = "Rating",
+    y = "Count")
+count_rating_sanfran <- ggplot(data = san_francisco_final ) +
+  geom_bar(mapping = aes(x = Rating)) +
+  labs(
+    title = paste("Rating"),
+    x = "Rating",
+    y = "Count")
 
 print(count_rating_new_york)
 print(count_rating_seattle)
 print(count_rating_houston)
+print(count_rating_sanfran)
 ```
 
 ## Number of Reviews 
 ```{r}
 count_review_new_york <- ggplot(data = new_york_final) +
   geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
-  coord_cartesian(xlim = c(0, 8000))
+  coord_cartesian(xlim = c(0, 8000)) +
+  labs(
+    title = paste("Reviews"),
+    x = "Reviews",
+    y = "Count")
 count_review_seattle <- ggplot(data = seattle_final) +
   geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
-  coord_cartesian(xlim = c(0, 8000))
+  coord_cartesian(xlim = c(0, 8000))  +
+  labs(
+    title = paste("Reviews"),
+    x = "Reviews",
+    y = "Count")
 count_review_houston <- ggplot(data = seattle_final) +
   geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
-  coord_cartesian(xlim = c(0, 8000))
+  coord_cartesian(xlim = c(0, 8000))  +
+  labs(
+    title = paste("Reviews"),
+    x = "Reviews",
+    y = "Count")
+count_review_sanfran <-  ggplot(data = san_francisco_final) +
+  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
+  coord_cartesian(xlim = c(0, 8000))  +
+  labs(
+    title = paste("Reviews"),
+    x = "Reviews",
+    y = "Count")
 
 print(count_review_new_york)
 print(count_review_seattle)
 print(count_review_houston)
+print(count_review_sanfran)
 ```
 
 ## Rating Versus Review 
 ```{r}
 rating_review_new_york <- ggplot(data = new_york_final) +
-  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))  +
+  labs(
+    title = paste("Ratings by Review"),
+    x = "Rating",
+    y = "Number of Reviews")
 rating_review_seattle <- ggplot(data = seattle_final) +
-  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))  +
+  labs(
+    title = paste("Ratings by Review"),
+    x = "Rating",
+    y = "Number of Reviews")
 rating_review_houston <- ggplot(data = houston_final) +
-  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))  +
+  labs(
+    title = paste("Ratings by Review"),
+    x = "Rating",
+    y = "Number of Reviews")
+rating_review_sanfran <- ggplot(data = san_francisco_final) +
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))  +
+  labs(
+    title = paste("Ratings by Review"),
+    x = "Rating",
+    y = "Number of Reviews")
 
 print(rating_review_new_york)
 print(rating_review_seattle)
 print(rating_review_houston)
+print(rating_review_sanfran)
 ```
 
 
 ## Rating Versus Price
 ```{r}
 rating_price_new_york <- ggplot(data = new_york_final) +
-  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))  +
+  labs(
+    title = paste("Price by Rating"),
+    x = "Price",
+    y = "Rating")
 rating_price_seattle <- ggplot(data = seattle_final) +
-  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))  +
+  labs(
+    title = paste("Price by Rating"),
+    x = "Price",
+    y = "Rating")
 rating_price_houston <- ggplot(data = houston_final) +
-  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))  +
+  labs(
+    title = paste("Price by Rating"),
+    x = "Price",
+    y = "Rating")
+rating_price_sanfran <- ggplot(data = san_francisco_final) +
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))  +
+  labs(
+    title = paste("Price by Rating"),
+    x = "Price",
+    y = "Rating")
 
 print(rating_price_new_york)
 print(rating_price_seattle)
 print(rating_price_houston)
+print(rating_price_sanfran)
 ```
 
 
 ## Prive Versus Review
 ```{r}
 price_review_new_york <- ggplot(data = new_york_final) +
-  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))  +
+  labs(
+    title = paste("Price by Reviews"),
+    x = "Price",
+    y = "Number of Reviews")
 price_review_seattle <- ggplot(data = seattle_final) +
-  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count)) +
+  labs(
+    title = paste("Price by Reviews"),
+    x = "Price",
+    y = "Number of Reviews")
 price_review_houston <- ggplot(data = houston_final) +
-  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count)) +
+  labs(
+    title = paste("Price by Reviews"),
+    x = "Price",
+    y = "Number of Reviews")
+price_review_sanfran <- ggplot(data = san_francisco_final) +
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count)) +
+  labs(
+    title = paste("Price by Reviews"),
+    x = "Price",
+    y = "Number of Reviews")
 
 print(price_review_new_york)
 print(price_review_seattle)
 print(price_review_houston)
+print(price_review_sanfran)
 ```
-
-
 
 
 ##Maps
@@ -164,17 +302,17 @@ ggmap(houstonmap) +
 
 
 ```{r}
-qmplot(longitude, latitude, data = seattle_table,
+qmplot(longitude, latitude, data = san_francisco_final,
        colour = I('red'), size = I(1), darken = ,1)
 
-sanfran_box <- c(left = min(San_Francisco_table$longitude), bottom =
-min(San_Francisco_table$latitude), right = max(San_Francisco_table$longitude), top = max(San_Francisco_table$latitude))
+sanfran_box <- c(left = min(san_francisco_final$longitude), bottom =
+min(san_francisco_final$latitude), right = max(san_francisco_final$longitude), top = max(san_francisco_final$latitude))
 
 sanfranmap <- get_stamenmap(sanfran_box, zoom = 12, maptype = "terrain") 
 ggmap(sanfranmap)
 
 ggmap(sanfranmap) +
-  geom_point(data = San_Francisco_table, aes(x = longitude, y = latitude))
+  geom_point(data = san_francisco_final, aes(x = longitude, y = latitude))
 ```
 
 
