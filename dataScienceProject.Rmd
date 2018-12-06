@@ -824,7 +824,240 @@ san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
    cats <- vector()
    san_francisco_table1[i,7] <- all_cats
   }
-  san_francisco_table1
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "50"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table2 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table2[i,1] <- details$businesses[[i]]$name
+   san_francisco_table2[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table2[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table2[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table2[i,5] <- details$businesses[[i]]$price
+   san_francisco_table2[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table2[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "100"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table3 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table3[i,1] <- details$businesses[[i]]$name
+   san_francisco_table3[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table3[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table3[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table3[i,5] <- details$businesses[[i]]$price
+   san_francisco_table3[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table3[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "150"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table4 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table4[i,1] <- details$businesses[[i]]$name
+   san_francisco_table4[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table4[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table4[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table4[i,5] <- details$businesses[[i]]$price
+   san_francisco_table4[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table4[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "200"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table5 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table5[i,1] <- details$businesses[[i]]$name
+   san_francisco_table5[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table5[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table5[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table5[i,5] <- details$businesses[[i]]$price
+   san_francisco_table5[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table5[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "250"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table6 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table6[i,1] <- details$businesses[[i]]$name
+   san_francisco_table6[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table6[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table6[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table6[i,5] <- details$businesses[[i]]$price
+   san_francisco_table6[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table6[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "300"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table7 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table7[i,1] <- details$businesses[[i]]$name
+   san_francisco_table7[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table7[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table7[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table7[i,5] <- details$businesses[[i]]$price
+   san_francisco_table7[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table7[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "350"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table8 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table8[i,1] <- details$businesses[[i]]$name
+   san_francisco_table8[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table8[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table8[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table8[i,5] <- details$businesses[[i]]$price
+   san_francisco_table8[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table8[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "400"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table9 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table9[i,1] <- details$businesses[[i]]$name
+   san_francisco_table9[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table9[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table9[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table9[i,5] <- details$businesses[[i]]$price
+   san_francisco_table9[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table9[i,7] <- all_cats
+  }
+```
+
+```{r}
+san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
+              query = list(location = "San Francisco", price = "1,2,3,4", limit = "50", offset = "450"),
+              add_headers(Authorization = "Bearer xEc4HGvGXUa5hzIiVTxBlbkfHRogq_QZRiIwbmEyo5MROFTISNg2zDn60UnEADRJA8hU4KMbkzfCIrgh2p6C9RvAJouRwxnrFf_NHtlYjFuUjPXla9vsJNb3hTvrW3Yx"))
+
+  details <- content(san_francisco, "parse")
+  
+  san_francisco_table10 <- tibble( Name = character(), Rating = double(), latitude = double(), longitude = double(), price = character(), review_count = integer(), categories = character())
+  
+  for(i in 1:length(details$businesses)){
+   san_francisco_table10[i,1] <- details$businesses[[i]]$name
+   san_francisco_table10[i,2] <- details$businesses[[i]]$rating
+   san_francisco_table10[i,3] <- details$businesses[[i]]$coordinates$latitude
+   san_francisco_table10[i,4] <- details$businesses[[i]]$coordinates$longitude
+   san_francisco_table10[i,5] <- details$businesses[[i]]$price
+   san_francisco_table10[i,6] <- details$businesses[[i]]$review_count
+   cats <- vector()
+   for(j in details$businesses[[i]]$categories){
+    cats <- append(cats,j$title)
+   }
+   all_cats <- paste(cats, collapse = ' ')
+   cats <- vector()
+   san_francisco_table10[i,7] <- all_cats
+  }
 ```
 
 ```{r, newyorkmerge}
@@ -840,130 +1073,13 @@ san_francisco <- GET("https://api.yelp.com/v3/businesses/search?",
                               houston_table5, houston_table6, houston_table7, 
                               houston_table8, houston_table9, houston_table10)
   
+  san_francisco_final <- bind_rows(san_francisco_table1, san_francisco_table2, san_francisco_table3, san_francisco_table4, 
+                              san_francisco_table5, san_francisco_table6, san_francisco_table7, 
+                              san_francisco_table8, san_francisco_table9, san_francisco_table10)
+  
   # write.csv(new_york_final, file = "new_york_final.csv")
   # write.csv(seattle_final, file = "seattle_final.csv")
   # write.csv(houston_final, file = "houston_final.csv")
+  # write.csv(san_francisco_final, file = "san_francisco_final.csv")
   
 ```
-
-```{r}
-count_price <- ggplot(data = san_francisco_table1) +
-  geom_bar(mapping = aes(x = price))
-
-print(count_price)
-```
-
-
-
-## this one needs some work 
-```{r}
-count_rating <- ggplot(data = san_francisco_table1) +
-  geom_bar(mapping = aes(x = Rating))
-
-print(count_rating)
-```
-
-
-```{r}
-count_review <- ggplot(data = san_francisco_table1) +
-  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
-  coord_cartesian(xlim = c(0, 8000))
-
-print(count_review)
-```
-
-
-```{r}
-rating_review <- ggplot(data = san_francisco_table1) +
-  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
-
-print(rating_review)
-```
-
-
-## Not sure where $$$$ went 
-```{r}
-rating_price <- ggplot(data = san_francisco_table1) +
-  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
-
-print(rating_price)
-```
-
-```{r}
-price_review <- ggplot(data = san_francisco_table1) +
-  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
-
-print(price_review)
-```
-
-
-```{r}
-price_review <- ggplot(data = san_francisco_table1) +
-  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
-  
-print(price_review)
-```
-
-
-
-##attempt at map plot
-
-```{r}
-qmplot(longitude, latitude, data = seattle_table,
-       colour = I('red'), size = I(1), darken = ,1)
-
-seattle_box <- c(left = min(seattle_table$longitude), bottom =
-min(seattle_table$latitude), right = max(seattle_table$longitude), top = max(seattle_table$latitude))
-
-seattlemap <- get_stamenmap(seattle_box, zoom = 12, maptype = "terrain") 
-ggmap(seattlemap)
-
-ggmap(seattlemap) +
-  geom_point(data = seattle_table, aes(x = longitude, y = latitude)) +
-  scale_y_continuous(limits = c(45, 50))
-```
-
-```{r}
-qmplot(longitude, latitude, data = seattle_table,
-       colour = I('red'), size = I(1), darken = ,1)
-
-houston_box <- c(left = min(Houston_table$longitude), bottom =
-min(Houston_table$latitude), right = max(Houston_table$longitude), top = max(Houston_table$latitude))
-
-houstonmap <- get_stamenmap(houston_box, zoom = 12, maptype = "terrain") 
-ggmap(houstonmap)
-
-ggmap(houstonmap) +
-  geom_point(data = Houston_table, aes(x = longitude, y = latitude))
-```
-
-
-```{r}
-qmplot(longitude, latitude, data = seattle_table,
-       colour = I('red'), size = I(1), darken = ,1)
-
-nyc_box <- c(left = min(new_york_table$longitude), bottom =
-min(new_york_table$latitude), right = max(new_york_table$longitude), top = max(new_york_table$latitude))
-
-nycmap <- get_stamenmap(nyc_box, zoom = 12, maptype = "terrain") 
-ggmap(nycmap)
-
-ggmap(nycmap) +
-  geom_point(data = new_york_table, aes(x = longitude, y = latitude))
-```
-
-
-```{r}
-qmplot(longitude, latitude, data = seattle_table,
-       colour = I('red'), size = I(1), darken = ,1)
-
-sanfran_box <- c(left = min(San_Francisco_table$longitude), bottom =
-min(San_Francisco_table$latitude), right = max(San_Francisco_table$longitude), top = max(San_Francisco_table$latitude))
-
-sanfranmap <- get_stamenmap(sanfran_box, zoom = 12, maptype = "terrain") 
-ggmap(sanfranmap)
-
-ggmap(sanfranmap) +
-  geom_point(data = San_Francisco_table, aes(x = longitude, y = latitude))
-```
-
