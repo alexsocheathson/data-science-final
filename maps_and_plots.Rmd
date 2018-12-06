@@ -1,0 +1,180 @@
+---
+title: "Maps_and_plots"
+author: "Becca Storey"
+date: "12/6/2018"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+library(httr)
+library(tidyverse)
+library(ggmap)
+```
+
+```{r}
+new_york_final <- read_csv("new_york_final.csv")
+seattle_final <- read_csv("seattle_final.csv")
+houston_final <- read_csv("houston_final.csv")
+```
+
+
+##Count versus Price 
+```{r}
+count_price_new_york <- ggplot(data = new_york_final) +
+  geom_bar(mapping = aes(x = price))
+
+count_price_seattle <- ggplot(data = seattle_final) +
+  geom_bar(mapping = aes(x = price))
+
+count_price_houston <- ggplot(data = houston_final) +
+  geom_bar(mapping = aes(x = price))
+
+print(count_price_new_york)
+print(count_price_seattle)
+print(count_price_houston)
+```
+
+
+## Count Versus Rating 
+```{r}
+count_rating_new_york <- ggplot(data = new_york_final ) +
+  geom_bar(mapping = aes(x = Rating))
+count_rating_seattle <- ggplot(data = seattle_final ) +
+  geom_bar(mapping = aes(x = Rating))
+count_rating_houston <- ggplot(data = houston_final ) +
+  geom_bar(mapping = aes(x = Rating))
+
+print(count_rating_new_york)
+print(count_rating_seattle)
+print(count_rating_houston)
+```
+
+## Number of Reviews 
+```{r}
+count_review_new_york <- ggplot(data = new_york_final) +
+  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
+  coord_cartesian(xlim = c(0, 8000))
+count_review_seattle <- ggplot(data = seattle_final) +
+  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
+  coord_cartesian(xlim = c(0, 8000))
+count_review_houston <- ggplot(data = seattle_final) +
+  geom_histogram(mapping = aes(x = review_count), binwidth = 500) +
+  coord_cartesian(xlim = c(0, 8000))
+
+print(count_review_new_york)
+print(count_review_seattle)
+print(count_review_houston)
+```
+
+## Rating Versus Review 
+```{r}
+rating_review_new_york <- ggplot(data = new_york_final) +
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+rating_review_seattle <- ggplot(data = seattle_final) +
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+rating_review_houston <- ggplot(data = houston_final) +
+  geom_boxplot(mapping = aes(x = as.factor(Rating), y = review_count))
+
+print(rating_review_new_york)
+print(rating_review_seattle)
+print(rating_review_houston)
+```
+
+
+## Rating Versus Price
+```{r}
+rating_price_new_york <- ggplot(data = new_york_final) +
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+rating_price_seattle <- ggplot(data = seattle_final) +
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+rating_price_houston <- ggplot(data = houston_final) +
+  geom_violin(mapping = aes(x = as.factor(price), y = Rating))
+
+print(rating_price_new_york)
+print(rating_price_seattle)
+print(rating_price_houston)
+```
+
+
+## Prive Versus Review
+```{r}
+price_review_new_york <- ggplot(data = new_york_final) +
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+price_review_seattle <- ggplot(data = seattle_final) +
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+price_review_houston <- ggplot(data = houston_final) +
+  geom_boxplot(mapping = aes(x = as.factor(price), y = review_count))
+
+print(price_review_new_york)
+print(price_review_seattle)
+print(price_review_houston)
+```
+
+
+
+
+##Maps
+
+## Seattle
+```{r}
+qmplot(longitude, latitude, data = seattle_final,
+       colour = I('red'), size = I(1), darken = ,1)
+
+seattle_box <- c(left = min(seattle_final$longitude), bottom =
+min(seattle_final$latitude), right = max(seattle_final$longitude), top = max(seattle_final$latitude))
+
+seattlemap <- get_stamenmap(seattle_box, zoom = 12, maptype = "terrain") 
+ggmap(seattlemap)
+
+ggmap(seattlemap) +
+  geom_point(data = seattle_final, aes(x = longitude, y = latitude))
+```
+
+
+## New York City 
+```{r}
+qmplot(longitude, latitude, data = new_york_final,
+       colour = I('red'), size = I(1), darken = ,1)
+
+nyc_box <- c(left = min(new_york_final$longitude), bottom =
+min(new_york_final$latitude), right = max(new_york_final$longitude), top = max(new_york_final$latitude))
+
+nycmap <- get_stamenmap(nyc_box, zoom = 12, maptype = "terrain") 
+ggmap(nycmap)
+
+ggmap(nycmap) +
+  geom_point(data = new_york_final, aes(x = longitude, y = latitude))
+```
+
+##Houston 
+```{r}
+qmplot(longitude, latitude, data = houston_final,
+       colour = I('red'), size = I(1), darken = ,1)
+
+houston_box <- c(left = min(houston_final$longitude), bottom =
+min(houston_final$latitude), right = max(houston_final$longitude), top = max(houston_final$latitude))
+
+houstonmap <- get_stamenmap(nyc_box, zoom = 12, maptype = "terrain") 
+ggmap(houstonmap)
+
+ggmap(houstonmap) +
+  geom_point(data = houston_final, aes(x = longitude, y = latitude))
+```
+
+
+```{r}
+qmplot(longitude, latitude, data = seattle_table,
+       colour = I('red'), size = I(1), darken = ,1)
+
+sanfran_box <- c(left = min(San_Francisco_table$longitude), bottom =
+min(San_Francisco_table$latitude), right = max(San_Francisco_table$longitude), top = max(San_Francisco_table$latitude))
+
+sanfranmap <- get_stamenmap(sanfran_box, zoom = 12, maptype = "terrain") 
+ggmap(sanfranmap)
+
+ggmap(sanfranmap) +
+  geom_point(data = San_Francisco_table, aes(x = longitude, y = latitude))
+```
+
+
