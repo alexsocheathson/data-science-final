@@ -1,0 +1,11 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+  .banner {
+    background-image: linear-gradient(0deg,#244051,#1d2041);
+    color: #fff;
+    height: 200px;
+    padding: 60px 0;
+    text-align: center;
+  }
