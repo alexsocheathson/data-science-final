@@ -23,7 +23,6 @@ san_francisco_final <- read_csv("san_francisco_final.csv")
 read_csv("new_york_final.csv")
 ```
 
-## Category Analysis
 
 ```{r}
 foo2 <- airbnb.df$AboutListing[5]
@@ -42,6 +41,83 @@ aes(x = pub_trans, y = Price)) +
     x = "Access to Public Transportation",
     y = "Price")
 ```
+
+## Category Analysis for San Francisco 
+```{r}
+san_francisco <- san_francisco_final %>%
+mutate(Coffee = str_detect(san_francisco_final$categories,"[Cc]offee"),
+       Wine = str_detect(san_francisco_final$categories,"[Ww]ine"),
+       Cocktail = str_detect(san_francisco_final$categories,"[Cc]ocktail"),
+       Brunch = str_detect(san_francisco_final$categories,"[Bb]runch"),
+       Brewery = str_detect(san_francisco_final$categories,"[Bb]reweries"),
+       Bakery = str_detect(san_francisco_final$categories,"[Bb]akeries"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Coffee)) +
+  labs(
+    title = paste("Coffee Bars in San Francisco"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Wine)) + 
+  labs(
+    title = paste("Wine Bars in San Francisco"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Cocktail)) +
+  labs(
+    title = paste("Cocktail Bars in San Francisco"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Brunch)) +
+  labs(
+    title = paste("Brunch in San Francisco"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Brewery)) +
+  labs(
+    title = paste("Breweries in San Francisco"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Bakery)) +
+  labs(
+    title = paste("Bakeries in San Francisco"))
+
+```
+
+## Asian across cities
+
+```{r}
+
+san_francisco <- san_francisco_final %>%
+  mutate(Asian = str_detect(san_francisco_final$categories,"[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+new_york_city <- new_york_final %>%
+mutate(Asian = str_detect(houston_final$categories,"[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+houston <- houston_final %>%
+  mutate(Asian = str_detect(houston_final$categories, "[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+seattle <- seattle_final %>%
+  mutate(Asian = str_detect(seattle_final$categories, "[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+
+ggplot(data = san_francisco) +
+  geom_bar(mapping = aes(x = Asian)) +
+  labs(
+    title = paste("Asian in San Francisco"))
+
+ggplot(data = new_york_city) +
+  geom_bar(mapping = aes(x = Asian)) +
+  labs(
+    title = paste("Asian in New York City"))
+
+ggplot(data = houston) +
+  geom_bar(mapping = aes(x = Asian)) +
+  labs(
+    title = paste("Asian in Houston"))
+
+ggplot(data = seattle) +
+  geom_bar(mapping = aes(x = Asian)) +
+  labs(
+    title = paste("Asian in Seattle"))
+```
+
 
 
 
