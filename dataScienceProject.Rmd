@@ -11,8 +11,6 @@ editor_options:
 library(httr)
 library(tidyverse)
 library(ggmap)
-library(leaflet)
-```
 
 ```{r}
   # r <- GET("http://httpbin.org/get", 
@@ -228,7 +226,8 @@ seattlemap <- get_stamenmap(seattle_box, zoom = 12, maptype = "terrain")
 ggmap(seattlemap)
 
 ggmap(seattlemap) +
-  geom_point(data = seattle_table, aes(x = longitude, y = latitude))
+  geom_point(data = seattle_table, aes(x = longitude, y = latitude)) +
+  scale_y_continuous(limits = c(45, 50))
 ```
 
 ```{r}
