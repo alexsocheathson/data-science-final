@@ -87,39 +87,35 @@ ggplot(data = san_francisco) +
 ## Asian across cities
 
 ```{r}
-
 san_francisco <- san_francisco_final %>%
-  mutate(Asian = str_detect(san_francisco_final$categories,"[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+  mutate(Thai = str_detect(san_francisco_final$categories, "[Th]ai"))
 new_york_city <- new_york_final %>%
-mutate(Asian = str_detect(houston_final$categories,"[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+mutate(Thai= str_detect(houston_final$categories,"[Th]ai"))
 houston <- houston_final %>%
-  mutate(Asian = str_detect(houston_final$categories, "[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+  mutate(Thai = str_detect(houston_final$categories, "[Th]ai"))
 seattle <- seattle_final %>%
-  mutate(Asian = str_detect(seattle_final$categories, "[Vv]ietnamese|[Tt]ai|[Cc]inese|[Jj]apanese|[Cc]ambodian"))
+  mutate(Thai = str_detect(seattle_final$categories, "[Th]ai"))
 
 ggplot(data = san_francisco) +
-  geom_bar(mapping = aes(x = Asian)) +
+  geom_bar(mapping = aes(x = Thai)) +
   labs(
-    title = paste("Asian in San Francisco"))
+    title = paste("Thai in San Francisco"))
 
 ggplot(data = new_york_city) +
-  geom_bar(mapping = aes(x = Asian)) +
+  geom_bar(mapping = aes(x = Thai)) +
   labs(
-    title = paste("Asian in New York City"))
+    title = paste("Thai in New York City"))
 
 ggplot(data = houston) +
-  geom_bar(mapping = aes(x = Asian)) +
+  geom_bar(mapping = aes(x = Thai)) +
   labs(
-    title = paste("Asian in Houston"))
+    title = paste("Thai in Houston"))
 
 ggplot(data = seattle) +
-  geom_bar(mapping = aes(x = Asian)) +
+  geom_bar(mapping = aes(x = Thai)) +
   labs(
-    title = paste("Asian in Seattle"))
+    title = paste("Thai in Seattle"))
 ```
-
-
-
 
 
 ##Count versus Price 
@@ -379,7 +375,7 @@ ggmap(houstonmap) +
 
 ```{r}
 qmplot(longitude, latitude, data = san_francisco_final,
-       colour = I('red'), size = I(1), darken = ,1)
+       colour = I('green'), size = I(1), darken = ,1)
 
 sanfran_box <- c(left = min(san_francisco_final$longitude), bottom =
 min(san_francisco_final$latitude), right = max(san_francisco_final$longitude), top = max(san_francisco_final$latitude))
