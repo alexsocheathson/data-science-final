@@ -4,45 +4,262 @@
 		<title>Data Science Project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="shortcut icon" type="image/png" href="images/fav.ico"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/global_styles.css" />
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	</head>
 	<body>
-
 		<div class= "banner">
 			<div class= "container">
-					<h1>The American Palette: A Data Approach to Yelp</h1>
+				<div class="row">
+					<div class="col-12">
+						<p class="banner-title banner-text">The American Palette: An Analysis of Tastes</p>
+					</div>
+				</div>
+				<div class="row">
+					<!-- <p class="col-12 banner-text">Introduction to Data Science</p> -->
+					<p class="col-12 banner-text">Introduction to Data Science Project by Becca Storey and Alex Son</p>
+				</div>
+				<div class= "row">
+					<div style="margin: 0 auto">
+						<a class="button" href="https://github.com/alexsocheathson/data-science-final">View Project Repository</a>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<div class= "section-one">
-			<div class="container">
-				<h1>Section One</h1>
-			</div>
-		</div>
-
-		<div class = "seperator">
-		</div>
-
-		<div class= "section-two">
-			<div class="container">
-				<h1>Section Two</h1>
-			</div>
-		</div>
-
-		<div class = "seperator">
-		</div>
-
 		<div class= "section-three">
 			<div class="container">
-				<h1>Section Three</h1>
+				<div class="section-text">
+					<p>Yelp is a local-search service powered by crowd-sourced review forum, as well as an American multinational corporation headquartered in San Francisco, California. It develops, hosts and markets Yelp.com and the Yelp mobile app, which publish crowd-sourced reviews about local businesses. In this project using the Yelp Fusion v3 API, we analyze and search for trends amoung cities. The dataset used is a collection of results of the first 500 businesses that best match the search mirror exactly what happens with their mobile and web services.</p>
+				</div>
 			</div>
 		</div>
-
+		<div class= "section-one">
+			<div class="container">
+				<div class="heat-slider section-text">
+					<div>
+						<p><strong>New York</strong></p>
+						<img src="https://firebasestorage.googleapis.com/v0/b/model-citizens.appspot.com/o/New%20York%20City%20Map.png?alt=media&token=49601984-5e3f-4433-a69a-0707360bf0d0" alt="New York Heatmap" height="500px">
+					</div>
+					<div>
+						<p><strong>Seattle</strong></p>
+						<img src="https://firebasestorage.googleapis.com/v0/b/model-citizens.appspot.com/o/Seattle%20Map.png?alt=media&token=798580fa-20b1-463a-a445-cb1efa901094" alt="Seattle Heatmap" height="500px">
+					</div>
+					<div>
+						<p><strong>Houston</strong></p>
+						<img src="https://firebasestorage.googleapis.com/v0/b/model-citizens.appspot.com/o/Houston%20Map.png?alt=media&token=3748f2ef-b16e-4655-b542-5f10a2e4d654" alt="Houston Heatmap" height="500px">
+					</div>
+					<div>
+						<p><strong>San Francisco</strong></p>
+						<img src="https://firebasestorage.googleapis.com/v0/b/model-citizens.appspot.com/o/San%20Francisco%20Map.png?alt=media&token=b4a0f257-a41f-48e9-87eb-309ab04d24c3" alt="Houston Heatmap" height="500px">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class= "section-two">
+			<div class="container">
+				<div>
+					<p class="section-banner">Counts</p>
+				</div>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class="container">
+				<p class="section-title">Count of Prices</p>
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/55.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/57.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/59.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/61.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+				</div>
+				<p class="section-text">Yelp divides price into four categories: inexpensive, moderate, pricey, and ultra high-end ($,$$,$$$,$$$$). All of the price graphs look fairly similar. The mode is $$, followed by $, $$$, and lastly $$$$. Seattle has the lowest count of $$$$ eateries, while New York City has the highest.</p>
+			</div>
+		</div>
+		<div class= "section-three">
+			<div class="container">
+				<br/>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class="container">
+				<p class="section-title">Count of Ratings</p>
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/63.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/65.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/67.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/69.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+				</div>
+				<p class="section-text">The mode for ratings is 4.0. for all the cities, followed by 4.5, 3.5, and then 5.0. The data from Seattle was the only data set to include eateries with a rating of 3.0. Seattle and Houston had the largest count of 5.0 ratings.</p>
+			</div>
+		</div>
+		<div class= "section-three">
+			<div class="container">
+				<br/>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class="container">
+				<p class="section-title">Count of Reviews</p>
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/71.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/73.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/75.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/77.embed?logo=false&link=false&modebar=false"></iframe>
+					</div>
+				</div>
+				<p class="section-text">The number of reviews ranged from around 0 all the way to 7000 for all 4 cities. All of the data was skewed right. Seattle and Houston had modes of about 500, while New York and San Francisco’s modes hovered around 1000 reviews. San Francisco had the largest ranges, from 0 to 7500 and 0 to 7000, respectively. The maximum reviews that eateries in Houston and Seattle received were 6500. </p>
+			</div>
+		</div>
+		<div class= "section-two">
+			<div class="container">
+				<div>
+					<p class="section-banner">Ratings by Review</p>
+				</div>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class= "container">
+				<!-- <p class= "section-title">Reviews by Rating / City</p> -->
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/79.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median for the number of reviews was highest for those eateries rated as 3.5 and progressively got smaller as the ratings improved. The rating with the largest interquartile range is 3.5. The rating with the most outliers is 4. The 5-star ratings have almost no variability, as it is impossible to see any of the quartiles. </p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/81.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median for the number of reviews was highest for those eateries rated as 3.0 and progressively got smaller as the ratings improved. The 3.0 and 5.0 ratings had almost no variability, as we cannot see their quartiles. Ratings of 4.0 and 4.5 had larger interquartile ranges with outliers extending past the 4th quartile.</p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/83.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median for the number of reviews was highest for those eateries rated as 3.5 and progressively got smaller as the ratings improved. There was almost no variability with the 5.0 rating, while the 4 and 4.5 ratings showed some variability with outliers extending above the 4th quartile. </p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/85.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median for the number of reviews was highest for those eateries rated as 3.5 and progressively got smaller as the ratings improved. There was almost no variability with the 5.0 rating, while the 4 and 4.5 ratings showed some variability with outliers extending above the 4th quartile.</p>
+					</div>
+				</div>
+				<p class="section-text"><strong>In general, eateries with lower ratings (3 or 3.5) had more reviews, and not very much variability with the number of ratings. Those in the middle (4 or 4.5) had fewer ratings, but more variability in the number ratings, with some eateries getting 10000. Those rated as 5 star have a median of about 400 reviews, and almost no outliers.</strong></p>
+			</div>
+		</div>
+		<div class= "section-two">
+			<div class="container">
+				<div>
+					<p class="section-banner">Price by Rating</p>
+				</div>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class= "container">
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/87.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">For $, $$, and $$$, all of the ratings ranged from as low as 3.5 to as high as 5.0. However, for eateries priced $$$$, ratings only ranged from 4 to 4.5, with a pretty even distribution at each end, and fewer ratings in between (at 4.25)</p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/89.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">For $ and $$, no ratings fell below 3.5. And most of them were clustered around 4.0 and 4.5, with few at 5.0. For $$$, most of the ratings were around 4.0, with some at 4.5, and a couple stretching all the way down to 3.0. Eateries priced $$$ had a fairly even distribution of ratings between 3.5 and 4.5, but none of 5.0.</p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/91.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">For $ and $$, ratings ranged from 3.5 to 5.0, with many clustered around 4.0 and 4.5. Especially for $$, more ratings were clustered around 4.0. For eateries priced $$$, a large portion of ratings fell around 4.0, with none above 4.5, and a couple stretching down as low as 3.5. For $$$$, ratings fell between 4.5 and 4.5, with none above or below. Most were between 4.0 and 4.25. </p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/93.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">Price $ and $$ had similar distributions ranging from 3.5 to 5.0, with almost all of the ratings at 4.0 or 4.5. Price $$$ had ratings ranging from 3.5 to 4.5 with most of the ratings falling evenly around 4.0. Price $$$$ had a very narrow distribution of ratings between 4.0 and 4.5 with equal amount of ratings at each end of its range.</p>
+					</div>
+				</div>
+				<p class="section-text"><strong>In general, there was a wider range of ratings for eateries marked as $ or $$, with a lot of ratings of 4.0 and 4.5, and fewer around 3.5 and 5.0. Eateries marked $$$$ had almost only 3.0 and 4.5 ratings, but oddly enough, no 5.0 ratings.</strong></p>
+			</div>
+		</div>
+		<div class= "section-two">
+			<div class="container">
+				<div>
+					<p class="section-banner">Price by Review</p>
+				</div>
+			</div>
+		</div>
+		<div class= "section-one">
+			<div class= "container">
+				<div class="graph-slider section-text">
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/95.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median number of reviews for eateries marked $, $$, and $$$ was very similar, around 1250. The median for those restaurants marked $$$ was a little higher. Prices $$ and $$$ had more outliers extending above the 4th quartile than $ and $$$$.</p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/97.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median was the smallest at $, and steadily increased so that the highest median (900) was at $$$$. $, $$, and $$$ had many outliers extending above the 4th quartile, $$$$ did not. </p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/99.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median number of reviews hovered around 400 for all prices. There was more variability in the number of reviews for eateries in the $, $$, and $$$ price ranges. The third quartile was unusually large for price $$$$, indicating a large portion of the number of reviews falling between 400 and 600.</p>
+					</div>
+					<div>
+						<iframe width="800" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~BeccaStorey/101.embed?logo=false&link=false&modebar=false"></iframe>
+						<p class= "section-text">The median for number of reviews was highest for $$$, followed by $$, $$$$, and then $. Medians were all between 1250 and 2000. The IQR looked similar for all prices, and they all had outliers extending above the 4th quartile. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class= "footer">
+			<div class="container">
+				<br/>
+			</div>
+		</div>
 
 		<!-- Scripts -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  		<script type="text/javascript" src="slick/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.graph-slider').slick({
+				dots: true,
+				arrows: true,
+				infinite: true,
+				autoplay: true,
+  				autoplaySpeed: 4000,
+			});
+		  });
+		</script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.heat-slider').slick({
+				dots: true,
+				arrows: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				slidesToShow: 3,
+			});
+		});
+		</script>
 	</body>
 </html>
